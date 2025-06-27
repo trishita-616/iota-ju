@@ -23,6 +23,7 @@
     }
   ],
   "routes": [
-    { "src": "/.*", "dest": "/" }
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/HOME/homepage-of-iota-main/home.html" }
   ]
 }

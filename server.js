@@ -20,20 +20,17 @@ const staticOptions = {
   }
 };
 
-// Configure static file serving with performance optimizations
+// Serve static files from the root directory
 app.use(express.static(__dirname, {
   ...staticOptions,
   dotfiles: 'ignore',
-  index: false,
-  maxAge: '1y',
-  lastModified: true,
-  etag: true
+  index: false
 }));
 
 // Add cache headers for common static files
 app.use((req, res, next) => {
   // Cache static assets for 1 year
-  if (req.url.match(/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$/)) {
+  if (req.url.match(/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot|webp)$/)) {
     res.setHeader('Cache-Control', 'public, max-age=31536000');
   }
   next();
@@ -49,20 +46,12 @@ app.get('/events', (req, res) => {
   res.sendFile(path.join(__dirname, 'EVENTS (2)/views/events.html'));
 });
 
-// Route for other static files (fallback)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, req.path));
-});
-
-// Route for other pages
+// Route for about page
 app.get('/about', (req, res) => {
-    res.sendFile(path.join(__dirname, 'ABOUT US/about us.html'));
+  res.sendFile(path.join(__dirname, 'ABOUT US/about us.html'));
 });
 
-app.get('/events', (req, res) => {
-    res.sendFile(path.join(__dirname, 'EVENTS (2)/views/events.html'));
-});
-
+// Route for team page
 app.get('/projects', (req, res) => {
     res.sendFile(path.join(__dirname, 'PROJECTS/projects.html'));
 });
