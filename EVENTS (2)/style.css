@@ -110,86 +110,328 @@ nav .routes a:hover {
    background :transparent;
 
 }
-.event-highlight {
+/* === EVENT SECTIONS === */
+.event-highlight,
+.event-row {
+  padding: 2rem 0;
+  margin: 2rem 0;
   position: relative;
-  width: 100%;
-  padding-bottom: 4rem;
-  margin-bottom: 10rem; /* ✅ Space for next section */
+  overflow: hidden;
   background: transparent;
 }
 
-
-.event-container {
-  position: relative;
-  width: 90%;
-  height: 100%;
+.event-container,
+.event-row {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  align-items: center;
+  align-items: stretch;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.event-container::before,
+.event-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Image styling for all events */
+.event-image,
+.left-event .event-image,
+.right-event .event-image {
+  flex: 0 0 48%;
+  max-width: 48%;
+  height: 350px;
+  object-fit: cover;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+  box-shadow: none;
+}
+
+.event-image:hover,
+.left-event .event-image:hover,
+.right-event .event-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Text container for all events */
+.event-text,
+.event-description {
+  flex: 0 0 52%;
+  max-width: 52%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.event-image {
-  width: 100%;
-  height: auto;
-  object-fit: contain; /* ✅ Prevents cropping */
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+.event-text h2,
+.event-description h3 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #4a90e2;
+  font-weight: 600;
 }
 
-.event-image:hover {
+.event-text p,
+.event-description p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #e0e0e0;
+  margin-bottom: 1.8rem;
+  max-width: 100%;
+}
+
+/* Right-aligned content */
+.right-event {
+  flex-direction: row-reverse;
+}
+
+/* Left-aligned content */
+.left-event {
+  flex-direction: row;
+}
+
+/* Hover effects */
+.event-image:hover,
+.left-event .event-image:hover,
+.right-event .event-image:hover {
   transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.6);
 }
-.event-text {
-  position: absolute; /* ✅ Overlay text over image */
-  max-width: 600px;
-  background: rgba(255, 255, 255, 0.1); /* ✅ translucent background */
-  backdrop-filter: blur(6px);
-  color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-  text-align: center;
-  z-index: 5;
-  top: 20rem;
+
+/* Ensure proper image alignment */
+.left-event .event-image {
+  order: 1;
+}
+
+.left-event .event-text,
+.left-event .event-description {
+  order: 2;
+}
+
+.right-event .event-image {
+  order: 2;
+}
+
+.right-event .event-text,
+.right-event .event-description {
+  order: 1;
+}
+
+/* Ensure consistent height for all content */
+.event-container,
+.event-row {
+  align-items: stretch;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 2rem auto;
+  max-width: 1100px;
+}
+
+/* Right-aligned image specific styles */
+.right-event .event-image {
+  order: 2;
+  border-radius: 0 12px 12px 0;
+}
+
+/* Left-aligned image specific styles */
+.left-event .event-image {
+  border-radius: 12px 0 0 12px;
+}
+
+/* Text section for right-aligned events */
+.right-event .event-text,
+.right-event .event-description {
+  border-radius: 12px 0 0 12px;
 }
 
 .event-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #4a90e2, #9c27b0);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  line-height: 1.2;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .event-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  font-weight: 300;
+  max-width: 90%;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(74, 144, 226, 0.5);
 }
 
-
-/* Text block over image */
-.event-info {
-  position: absolute;
-  bottom: 30px;
-  left: 40px;
-  background: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(5px);
+.event-button {
+  padding: 1.1rem 2.5rem;
+  background: linear-gradient(145deg, #4a90e2, #357abd);
   color: white;
-  padding: 1.5rem 2rem;
-  border-radius: 15px;
-  max-width: 60%;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  align-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.4);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transform: translateY(0);
+  will-change: transform, box-shadow;
 }
 
-.event-info:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 12px 30px rgba(255, 215, 0, 0.3);
+.event-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(145deg, #9c27b0, #4a90e2);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
-/* Text styling */
-.event-info span {
-  display: block;
-  font-size: 1.2rem;
-  color: gold;
+.event-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.5);
+  background: linear-gradient(145deg, #4a90e2, #9c27b0);
+}
+
+.event-button:hover::before {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .event-highlight {
+    padding: 4rem 0;
+  }
+  
+  .event-container {
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+  
+  .event-image,
+  .event-text {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .event-text h2 {
+    font-size: 2.8rem;
+  }
+  
+  .event-text p {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    border-left: none;
+    text-align: center;
+    max-width: 80%;
+  }
+  
+  .event-button {
+    align-self: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-text h2 {
+    font-size: 2.2rem;
+  }
+  
+  .event-text p {
+    font-size: 1.1rem;
+    max-width: 100%;
+  }
+  
+  .event-button {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-container {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+
+.event-text h2 {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+
+.event-text p {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.5s;
+}
+
+.event-button {
+  animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  animation-delay: 0.6s;
+}
+
+.event-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+}
+
+.event-button:hover::before {
+  width: 100%;
   font-weight: bold;
   margin-bottom: 0.5rem;
 }
@@ -362,16 +604,178 @@ nav .routes a:hover {
     box-shadow: 0 4px 16px rgba(0,0,0,0.18);
     cursor: pointer;
 }
-/* === GENERAL === */
+/* === EVENT SECTIONS === */
+.event-row {
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
 
-  
-  /* === LINKS === */
-  a {
-    color: rgb(76, 113, 146);
-    text-decoration: none;
-    font-size: 18px;
-    transition: all 0.4s ease-in-out;
+.event-row::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+.event-row .event-image {
+  width: 45%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  aspect-ratio: 16/9;
+  transform: perspective(1000px) rotateY(-5deg);
+  backface-visibility: hidden;
+  will-change: transform;
+  z-index: 2;
+}
+
+.event-row:hover .event-image {
+  transform: perspective(1000px) rotateY(0deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.event-description {
+  width: 50%;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.event-description h3 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #4a90e2, #9c27b0);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  line-height: 1.2;
+}
+
+.event-description p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  font-weight: 300;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(74, 144, 226, 0.5);
+}
+
+/* Right-aligned event (Connexion) */
+.right-event {
+  flex-direction: row-reverse;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Special styling for Lord of the Rings image */
+.lotr-image {
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lotr-image img {
+  width: auto;
+  height: auto;
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  position: relative;
+  margin: auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .event-container,
+  .event-row {
+    flex-direction: column;
+    padding: 1.5rem;
+    min-height: auto;
   }
+  
+  .event-image,
+  .event-text,
+  .event-description {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+  
+  .event-text h2,
+  .event-text h3,
+  .event-description h3 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+  }
+  
+  .event-text p,
+  .event-description p {
+    font-size: 0.95rem;
+    margin: 0.8rem auto;
+    max-width: 90%;
+  }
+  
+  .event-button {
+    margin: 1rem auto 0;
+  }
+  
+  .event-image,
+  .left-event .event-image,
+  .right-event .event-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .event-text h2,
+  .event-text h3,
+  .event-description h3 {
+    font-size: 1.5rem;
+  }
+  
+  .event-text p,
+  .event-description p {
+    font-size: 0.9rem;
+  }
+  
+  .event-button {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* === GENERAL === */
+a {
+  color: rgb(76, 113, 146);
+  text-decoration: none;
+  font-size: 18px;
+  transition: all 0.4s ease-in-out;
+}
   
   a:hover {
     color: rgb(101, 31, 31);
@@ -660,79 +1064,143 @@ nav .routes a:hover {
     text-align: left;
   }
   
-  /* Specific to right-aligned events */
+  /* Right-aligned event (Connexion) - Override default styles */
 .right-event {
   display: flex;
   flex-direction: row-reverse;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  padding: 3rem;
+  max-width: 1200px;
+  margin: 6rem auto;
+  background: transparent;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* Limit image size but keep it responsive */
-.right-event .event-image img {
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 400px;
-  border-radius: 10px;
-  display: block;
-  object-fit: contain;
-  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+.right-event::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background: radial-gradient(circle at 80% 30%, rgba(74, 144, 226, 0.1) 0%, transparent 50%);
+  z-index: 1;
+}
+
+/* Event image styles */
+.right-event .event-image,
+.left-event .event-image {
+  width: 45%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  object-fit: cover;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  aspect-ratio: 16/9;
+  transform: perspective(1000px) rotateY(5deg);
+  backface-visibility: hidden;
+  will-change: transform;
+  z-index: 2;
+}
+
+.right-event .event-image {
+  transform: perspective(1000px) rotateY(-5deg);
+}
+
+.right-event:hover .event-image,
+.left-event:hover .event-image {
+  transform: perspective(1000px) rotateY(0deg);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
 }
 
 /* Description styling */
-.right-event .event-description {
-  flex: 1;
-  padding-left: 1rem;
-  text-align: left;
+.right-event .event-description,
+.left-event .event-description {
+  width: 50%;
+  padding: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-.right-event .event-description h3 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  font-family: "Roboto", sans-serif;
-}
-
-.right-event .event-description p {
-  font-size: 1rem;
-  color: #444;
-  line-height: 1.6;
+.right-event .event-description h3,
+.left-event .event-description h3 {
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
+  color: #fff;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #fff, #4a90e2, #9c27b0);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 8s ease infinite;
+  line-height: 1.2;
 }
 
-/* 3D styled button */
-.right-event .event-button {
-  background: linear-gradient(to bottom, #00c3ff, #006b9f);
+.right-event .event-description p,
+.left-event .event-description p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  font-weight: 300;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(74, 144, 226, 0.5);
+}
+
+/* Button styles for all events */
+.event-button,
+.event-text .event-button,
+.event-description .event-button {
+  padding: 1rem 2.2rem;
+  background: linear-gradient(145deg, #4a90e2, #357abd);
   color: white;
   border: none;
-  border-radius: 12px;
-  padding: 12px 24px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.3),
-              inset 0 -2px 4px rgba(0, 0, 0, 0.3),
-              0 4px 8px rgba(0, 0, 0, 0.4);
-  transition: all 0.3s ease;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  box-shadow: 0 6px 20px rgba(74, 144, 226, 0.3);
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
 }
 
-.right-event .event-button:hover {
-  background: linear-gradient(to bottom, #00e1ff, #007db8);
-  transform: translateY(-2px);
-  box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.4),
-              inset 0 -2px 4px rgba(0, 0, 0, 0.4),
-              0 6px 12px rgba(0, 0, 0, 0.5);
+.event-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(145deg, #9c27b0, #4a90e2);
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
 }
 
-.right-event .event-button:active {
-  transform: translateY(2px);
-  box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+.event-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4);
+  background: linear-gradient(145deg, #4a90e2, #9c27b0);
+}
+
+.event-button:hover::before {
+  width: 100%;
 }
 @media (max-width: 768px) {
   .right-event {
@@ -868,5 +1336,258 @@ nav .routes a:hover {
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
   }
     
+  
+  
+/* Scroll animation classes */
+.event-row, .left-event, .right-event {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.event-row.visible, .left-event.visible, .right-event.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Ensure all child elements inherit the animation */
+.event-row > *, .left-event > *, .right-event > * {
+  opacity: inherit;
+  transform: inherit;
+  transition: inherit;
+}
+
+/* === UNIFIED EVENT CARD STYLES === */
+.event-row, .left-event, .right-event {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  margin: 6rem auto; /* Increased from 4rem */
+  border-radius: 15px;
+  overflow: visible;
+  transition: all 0.3s ease;
+  background: transparent;
+  position: relative;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+  align-items: stretch;
+  min-height: 350px; /* Ensure minimum height for the row */
+}
+
+.event-row + .event-row,
+.left-event + .left-event,
+.right-event + .right-event,
+.event-row + .left-event,
+.event-row + .right-event,
+.left-event + .right-event,
+.right-event + .left-event {
+  margin-top: 8rem; /* Increased from 6rem */
+}
+
+/* Add space above footer */
+.footer {
+  margin-top: 8rem; /* Added space above footer */
+}
+
+/* Hover effect for image and text cards */
+.event-text:hover,
+.event-description:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Blue outline for image containers on hover */
+.event-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0 3px #4a90e2, 0 8px 25px rgba(74, 144, 226, 0.5);
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Image container - separate card */
+.event-image, .event-row .event-image, .left-event .event-image, .right-event .event-image {
+  position: relative;
+  width: 46%;
+  height: 100%;
+  min-height: 350px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  background: #000;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Image styling */
+.event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  min-height: 100%;
+  min-width: 100%;
+  object-position: center;
+}
+
+/* Ensure the image fills its container */
+.event-image-content {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Text container - separate card */
+.event-text, .event-description {
+  flex: 1 0 46%;
+  width: 46%;
+  min-height: 300px;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+  align-self: stretch;
+}
+
+/* Ensure Connexion image fills container */
+#connexion-desc {
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#connexion-desc + .event-image,
+#connexion-desc ~ .event-image {
+  min-height: 350px;
+}
+
+/* Image styling - fills container while maintaining aspect ratio */
+.event-image img, .event-row .event-image img, .left-event .event-image img, .right-event .event-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  transition: transform 0.5s ease;
+  background: #000;
+}
+
+.event-image:hover img, .event-row .event-image:hover img, 
+.left-event .event-image:hover img, .right-event .event-image:hover img {
+  transform: scale(1.05);
+}
+
+/* Text content - takes the other half */
+.event-text, .event-description {
+  flex: 0 0 50%;
+  width: 50%;
+  padding: 2.5rem;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 350px;
+  margin: 0;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Headings */
+.event-text h2, .event-description h3 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem 0;
+  color: #4a90e2;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* Paragraph text */
+.event-text p, .event-description p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e0e0e0;
+  margin: 0 0 1.5rem 0;
+}
+
+/* Button styles */
+.event-button {
+  padding: 0.8rem 2rem;
+  background: linear-gradient(145deg, #4a90e2, #357abd);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-button:hover {
+  background: linear-gradient(145deg, #4a90e2, #9c27b0);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Right-aligned events (image on right) */
+.right-event {
+  flex-direction: row-reverse;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .event-container, .event-row, .left-event, .right-event {
+    flex-direction: column;
+    max-width: 95%;
+    min-height: auto;
+  }
+  
+  .event-image, .event-row .event-image, .left-event .event-image, .right-event .event-image,
+  .event-text, .event-description {
+    width: 100%;
+    flex: none;
+    padding: 0;
+  }
+  
+  .event-image, .event-row .event-image, .left-event .event-image, .right-event .event-image {
+    height: 250px;
+    min-height: 250px;
+  }
+  
+  .event-text, .event-description {
+    padding: 2rem;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .event-button {
+    margin: 0 auto;
+  }
+}
   
   

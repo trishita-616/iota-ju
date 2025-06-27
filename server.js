@@ -1,14 +1,57 @@
 const express = require('express');
 const path = require('path');
-const app = express();
-const port = process.env.PORT || 3000;
+const compression = require('compression');
 
-// Serve static files from the root directory
-app.use(express.static(__dirname));
+const app = express();
+const port = process.env.PORT || 3001;
+
+// Enable compression for all responses
+app.use(compression());
+
+// Set cache control headers for static files
+const staticOptions = {
+  maxAge: '1y',
+  etag: true,
+  lastModified: true,
+  setHeaders: (res, path) => {
+    if (path.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+    }
+  }
+};
+
+// Configure static file serving with performance optimizations
+app.use(express.static(__dirname, {
+  ...staticOptions,
+  dotfiles: 'ignore',
+  index: false,
+  maxAge: '1y',
+  lastModified: true,
+  etag: true
+}));
+
+// Add cache headers for common static files
+app.use((req, res, next) => {
+  // Cache static assets for 1 year
+  if (req.url.match(/\.(css|js|jpg|jpeg|png|gif|ico|svg|woff|woff2|ttf|eot)$/)) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000');
+  }
+  next();
+});
 
 // Route for the home page
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'HOME/homepage-of-iota-main/home.html'));
+  res.sendFile(path.join(__dirname, 'HOME/homepage-of-iota-main/home.html'));
+});
+
+// Route for the events page
+app.get('/events', (req, res) => {
+  res.sendFile(path.join(__dirname, 'EVENTS (2)/views/events.html'));
+});
+
+// Route for other static files (fallback)
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, req.path));
 });
 
 // Route for other pages
