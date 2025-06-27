@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IOTA - About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ABOUT US/style.css" />
+  <style>
+      
+    .logo-section {
+display: flex;
+align-items: center;
+gap: 1.5rem;
+}
+
+.logo-img {
+height: 60px;
+width: auto;
+}
+
+.separator {
+width: 2px;
+height: 40px;
+background-color: white;
+opacity: 0.6;
+}
+
+  </style>
+</head>
+<body>
+  <nav>
+    <!-- Left: Logos -->
+    <div class="logo-section">
+      <div class="logo">
+        <img src="/PROJECTS/images/logo.png" alt="IOTA Logo" class="logo-img" />
+      </div>
+  
+      <div class="separator"></div>
+  
+      <div class="logo">
+        <img src="/PROJECTS/images/JULogo.png" alt="JU Logo" class="logo-img" />
+      </div>
+    </div>
+  
+    <!-- Right: Navigation Links -->
+    <div class="routes">
+      <a href="/HOME/homepage-of-iota-main/home.html">Home</a>
+      <a href="/EVENTS (2)/views/events.html">Events</a>
+      <a href="/PROJECTS/projects.html">Projects</a>
+      <a href="/TEAM/team.html">Team</a>
+      <a href="/ABOUT US/about us.html">About Us</a>
+    </div>
+    
+  </nav>
+  
+
+    <div class="about-section">
+  <div class="about-header split">
+    <div class="about-text">
+      <h1>ABOUT US</h1>
+      <p>The IoT Applications Club at Jadavpur University (IOTA JU), founded in 2023, is driven by a compelling mission: to unite enthusiastic engineering students dedicated to pioneering research and development within the dynamic realm of the Internet of Things (IoT). IOTA JU is devoted to cultivating an inspiring environment that fosters not only the technical skills but also the core values essential for the academic and professional advancement of students in diverse IoT disciplines. Our expansive focus encompasses exciting fields such as Robotics, Sensors, Communication Systems, and Networking, while also delving into crucial software development domains, including Artificial Intelligence/Machine Learning (AI/ML), Cloud Computing, and Data Science. At this club, students embark on a transformative journey, where they are equipped with the knowledge and experience necessary to thrive and innovate in the rapidly changing landscape of technology.</p>
+      <button class="btn-primary">Learn More</button>
+    </div>
+    <div class="about-image">
+      <img src="./assets/group.png" alt="IOTA Team" />
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer">
+      <!-- Background Image -->
+      <img src="images/footerbg.png" alt="Footer Background" class="footerbg" />
+    
+      <!-- Main Footer Content -->
+      <div class="footer-content">
+        
+        <!-- Column 1: Logo & Social Icons -->
+        <div class="footer-column">
+          <div class="footer-logo">
+            <img src="images/logo.png" alt="IOTA Logo" />
+            <p>IoT Applications Club, Jadavpur University</p>
+          </div>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/people/IOT-Applications-Club-Jadavpur-University/61550560228682/" target="_blank" aria-label="Facebook">
+              <img src="/ABOUT US/images/facebook (2).png " alt="Facebook Icon" />
+            </a>
+            <a href="https://www.instagram.com/iota_ju/" target="_blank" aria-label="Instagram">
+              <img src="/TEAM/images/Instagram (2).png " alt="Instagram Icon" />
+            </a>
+            <a href="https://www.linkedin.com/company/iot-applications-club-jadavpur-university/posts/?feedView=all" target="_blank" aria-label="LinkedIn">
+              <img src="/TEAM/images/Linkedin (2).png " alt="LinkedIn Icon" />
+            </a>
+            <a href="https://github.com/IoTA-Jadavpur-Univeristy" target="_blank" aria-label="GitHub">
+              <img src="/TEAM/images/Github.png" alt="GitHub Icon" />
+            </a>
+          </div>
+        </div>
+    
+        <!-- Column 2: Google Map -->
+        <div class="footer-column">
+          <iframe class="map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.8675442443073!2d88.36859267531668!3d22.496625579497192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02713e32b77e77%3A0x2310e974d76cf91!2sPrajukti%20Bhavan%2F%20Civil%20Engineering%20Building!5e0!3m2!1sen!2sin!4v1707895678392!5m2!1sen!2sin"
+            width="300" height="200" style="border:0; border-radius:10px;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="JU Prajukti Bhavan Location Map">
+          </iframe>
+        </div>
+    
+        <!-- Column 3: Contact Form -->
+        <div class="footer-column contact-section">
+          <h3>Contact Us</h3>
+          <form class="contact-form">
+            <input type="text" placeholder="Name" required />
+            <input type="tel" placeholder="Phone Number" required />
+            <input type="email" placeholder="Email" required />
+            <textarea placeholder="Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+          </form>
+        </div>
+    
+      </div> <!-- .footer-content -->
+    
+      <!-- Footer Bottom Section -->
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <p>&copy; 2025 IoT Applications Club, Jadavpur University. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+          <p>Designed and developed by IOTA WebDev Team @2025</p>
+        </div>
+      </div>
+    </footer>
+    
+  </div>
+  </div>
+  <script>
+    function toggleMap(event) {
+      // Prevent event bubbling to avoid toggling twice
+      if (event) {
+        event.stopPropagation();
+      }
+      
+      const mapContainer = document.querySelector('.map-container');
+      const body = document.body;
+      
+      // Toggle the expanded class
+      mapContainer.classList.toggle('expanded');
+      
+      // Toggle body overflow to prevent scrolling when map is expanded
+      if (mapContainer.classList.contains('expanded')) {
+        body.style.overflow = 'hidden';
+      } else {
+        body.style.overflow = '';
+      }
+    }
+    
+    // Close map when clicking outside the map content
+    document.addEventListener('click', function(event) {
+      const mapContainer = document.querySelector('.map-container.expanded');
+      const mapContent = document.querySelector('.map-container.expanded .map-full');
+      
+      if (mapContainer && !mapContainer.contains(event.target)) {
+        mapContainer.classList.remove('expanded');
+        document.body.style.overflow = '';
+      }
+    });
+    
+    // Prevent closing when clicking inside the map content
+    document.querySelector('.map-full').addEventListener('click', function(event) {
+      event.stopPropagation();
+    });
+    
+    window.addEventListener('scroll', function() {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    
+    document.querySelectorAll('.about-box, .group-photo, .footer-line, .footer-top, .footer-bottom')
+      .forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

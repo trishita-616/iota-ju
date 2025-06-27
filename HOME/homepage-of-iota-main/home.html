@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IOTA</title>
+    <link rel="stylesheet" href="/HOME/homepage-of-iota-main/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+      
+      .logo-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.separator {
+  width: 2px;
+  height: 40px;
+  background-color: white;
+  opacity: 0.6;
+}
+.eventbtn {
+  padding: 14px 32px;
+  font-size: 1rem;
+  background: linear-gradient(145deg, #00bfa6, #009688);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 8px 15px rgba(0, 191, 166, 0.3);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  font-weight: bold;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+.eventbtn:hover {
+  transform: translateY(-5px) scale(1.03) rotateX(5deg);
+  box-shadow: 0 12px 20px rgba(0, 191, 166, 0.5);
+  background: linear-gradient(145deg, #00e0bb, #007f6e);
+}
+
+.event-description {
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif; /* Modern & energetic */
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 191, 166, 0.5);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  animation: fadeUp 1.2s ease-in-out both;
+}
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <nav>
+      <!-- Left: Logos -->
+      <div class="logo-section">
+        <div class="logo">
+          <img src="images/logo.png" alt="IOTA Logo" class="logo-img" />
+        </div>
+    
+        <div class="separator"></div>
+    
+        <div class="logo">
+          <img src="images/JULogo.png" alt="JU Logo" class="logo-img" />
+        </div>
+      </div>
+    
+      <!-- Right: Navigation Links -->
+      <div class="routes">
+        <a href="/HOME/homepage-of-iota-main/home.html">Home</a>
+        <a href="/EVENTS (2)/views/events.html">Events</a>
+        <a href="/PROJECTS/projects.html">Projects</a>
+        <a href="/TEAM/team.html">Team</a>
+        <a href="/ABOUT US/about us.html">About Us</a>
+      </div>
+      
+    </nav>
+    
+      
+      
+      
+    <div class="page1">
+      <video autoplay muted loop playsinline class="herobg">
+        <source src="videos/IOTA TRAILER 2 (1).mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+      <div class="herocontent">
+        <h1>
+          <span class="typing-line1">WELCOME TO THE IoT Applications Club,</span><br />
+          <span class="typing-line2">Jadavpur University</span>
+        </h1>
+        
+        
+      
+        <h2>
+          We are a group that love to discover greater possibilities with
+          Internet of Things.
+        </h2>
+      
+        <h2 class="fade-in-text">Join us now.</h2>
+      
+        <button class="discover">DISCOVER MORE</button>
+      </div>
+     </div>
+     <div class="page2" id="page2">
+      <video autoplay muted loop playsinline class="page2bg">
+        <source src="videos/lordofring.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      
+
+      <div class="page2content">
+        <h1>RECENT EVENTS</h1>
+        <div class="events">
+          <img src="images/prizedistribution.jpg" alt="" class="homeevents" />
+          <div class="eventtxt">
+            <h1>EVENTS, SEMINARS AND HACKATHONS</h1>
+            <h2 class="event-description">
+              From adrenaline-pumping hackathons to idea-fueled seminars, <br />
+              we bring the IoT revolution to life — all year long. <br />
+              Be where innovation meets action.
+            </h2>
+            
+            <button class="eventbtn" onclick="window.location.href='/EVENTS (2)/views/events.html'">EXPLORE</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="page3">
+      <img src="images/homebg.jpg" alt="" class="Carouselimg" />
+      <h1>GALLERY</h1>
+      <div class="carouselbody">
+        <div class="carousel-container">
+          <button class="arrow left">&#8592;</button>
+          <div class="carousel" id="carousel">
+            <img src="images/carousel1.jpg" alt="" />
+            <img src="images/carousel2.jpg" alt="" />
+            <img src="images/carousel4.png" alt="" />
+            <img src="images/carousel3.jpg" alt="" />
+            <img src="images/carousel6.jpg" alt="" />
+            <img src="images/carousel7.jpg" alt="" />
+            
+          </div>
+          
+          <button class="arrow right">&#8594;</button>
+          <div class="carousel-controls" id="dots"></div>
+        </div>
+      </div>
+    </div>
+    <!-- PAGE 4: PROJECTS -->
+<div class="page4 projects-page">
+  <video autoplay muted loop playsinline class="projectsbg">
+    <source src="videos/analog.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="page2content">
+    <h1>PROJECTS</h1>
+    <div class="events">
+      <img src="images/projects.jpg" alt="Project" class="homeevents" />
+      <div class="eventtxt">
+        <h1>Ongoing and Past IoT Projects</h1>
+        <h2>
+          Discover our top projects involving smart automation,<br />
+          connected devices, environmental monitoring,<br />
+          and AI-powered systems.
+        </h2>
+        <button class="projectsbtn" onclick="window.location.href='/PROJECTS/projects.html'">
+          Explore Projects
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 5: TEAM -->
+<div class="page5 team-page">
+  <video autoplay muted loop playsinline class="teambg">
+    <source src="videos/chips.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="page2content">
+    <h1>OUR TEAM</h1>
+    <div class="events">
+      <img src="images/team.jpg" alt="Team" class="homeevents" />
+      <div class="eventtxt">
+        <h1>Meet Our Dedicated Members</h1>
+        <h2>
+          A collaborative group of innovators,<br />
+          engineers, developers and designers<br />
+          leading IOTA towards excellence.
+        </h2>
+        <button class="teambtn" onclick="window.location.href='/TEAM/team.html'">
+          Know the Team
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE 6: ABOUT US -->
+<div class="page6 about-page">
+  <video autoplay muted loop playsinline class="aboutbg">
+    <source src="videos/aboutus.mov" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="page2content">
+    <h1>ABOUT US</h1>
+    <div class="events">
+      <img src="images/aboutus.jpg" alt="About IOTA" class="homeevents" />
+      <div class="eventtxt">
+        <h1>Who We Are</h1>
+        <h2>
+          IOTA is the official IoT Applications Club at Jadavpur University.<br />
+          We explore Internet of Things through research,<br />
+          hands-on projects, and community engagement.
+        </h2>
+        <button class="aboutbtn" onclick="window.location.href='/ABOUT US/about us.html'">
+          Read More
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="page4">
+      <img src="images/homebg.jpg" class="page4img" alt="" class="herobg" />
+      <div class="page2content">
+        <div class="knowmore">
+          <h1>KNOW MORE ABOUT US HERE</h1>
+          <div class="knowmorecontent">
+            <div class="knowmorecontentleft">
+              <img src="images/logo.png" alt="" />
+            </div>
+            <div class="knowmorecontentright">
+              <h1>
+                WE ARE THE CLUB THAT LEARN, SHARE AND EXPLORE EVERYTHING RELATED
+                TO IOT.
+              </h1>
+              <h2>
+                IOTA IS A JADAVPUR UNIVERSITY CLUB, WHERE WE WORK TOWARD
+                INCREASING KNOWLEDGE AND INTEL ABOUT INTERNET OF THINGS AND WE
+                ARE STILL DISCOVERING A LOT ABOUT IT. LET'S LEARN TOGETHER.
+              </h2>
+            </div>
+          </div>
+          <h2>“THE INTERNET OF THINGS WILL AUGMENT YOUR BRAIN”</h2>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <!-- Background Image -->
+      <img src="images/footerbg.png" alt="" class="footerbg" />
+    
+      <!-- First Column: Logo & Social -->
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="images/logo.png" alt="IOTA Logo" />
+          <p>IoT Applications Club, Jadavpur University</p>
+        </div>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/people/IOT-Applications-Club-Jadavpur-University/61550560228682/?mibextid=ZbWKwL" target="_blank">
+            <img src="images/facebook (2).png" alt="Facebook" />
+          </a>
+          <a href="https://www.instagram.com/iota_ju/" target="_blank">
+            <img src="images/Instagram (2).png" alt="Instagram" />
+          </a>
+          <a href="https://www.linkedin.com/company/iot-applications-club-jadavpur-university/posts/?feedView=all" target="_blank">
+            <img src="images/Linkedin (2).png" alt="LinkedIn" />
+          </a>
+          <a href="https://github.com/IoTA-Jadavpur-Univeristy" target="_blank">
+            <img src="images/Github.png" alt="LinkedIn" />
+          </a>
+        </div>
+      </div>
+    
+      <!-- Second Column: Google Map -->
+      <div class="footer-column">
+        <iframe class="map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.8675442443073!2d88.36859267531668!3d22.496625579497192!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a02713e32b77e77%3A0x2310e974d76cf91!2sPrajukti%20Bhavan%2F%20Civil%20Engineering%20Building!5e0!3m2!1sen!2sin!4v1707895678392!5m2!1sen!2sin"
+          width="300" height="200" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    
+      <!-- Third Column: Contact Form -->
+      <div class="footer-column contact-section">
+        <h3>Contact Us</h3>
+        <form class="contact-form">
+          <input type="text" placeholder="Name" required />
+          <input type="tel" placeholder="Phone Number" required />
+          <input type="email" placeholder="Email" required />
+          <textarea placeholder="Message" rows="4" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    
+      <!-- Footer Bottom Section -->
+      <div class="footer-bottom">
+        <div class="footer-left">
+          <p>&copy; 2025 IoT Applications Club, Jadavpur University. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+          <p>Designed and developed by IOTA WebDev Team @2025</p>
+        </div>
+      </div>
+      
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+      document.querySelector('.discover').addEventListener('click', () => {
+        const target = document.querySelector('#page2');
+        target.scrollIntoView({ behavior: 'smooth' });
+    
+        // After a short delay, refresh ScrollTrigger
+        setTimeout(() => {
+          if (ScrollTrigger) ScrollTrigger.refresh();
+        }, 1000); // Adjust delay if animation is still late
+      });
+    </script>
+    
+    <script src="script.js"></script>
+  </body>
+</html>
