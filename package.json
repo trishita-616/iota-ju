@@ -4,7 +4,8 @@
   "description": "IOTA official website",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build": "echo 'Build script completed. No build step required for static files.'"
   },
   "dependencies": {
     "compression": "^1.8.0",
@@ -14,5 +15,9 @@
   },
   "engines": {
     "node": ">=14.0.0"
-  }
+  },
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "private": true
 }
