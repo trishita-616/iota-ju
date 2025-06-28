@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IOTA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" as="image" href="images/logo.png">
+    <link rel="preload" as="image" href="images/JULogo.png">
     <link rel="stylesheet" href="/HOME/homepage-of-iota-main/style.css" />
     <link
       rel="stylesheet"
@@ -132,10 +136,11 @@
       
       
     <div class="page1">
-      <video autoplay muted loop playsinline class="herobg">
-        <source src="videos/IOTA TRAILER 2 (1).mp4" type="video/mp4" />
+      <video autoplay muted loop playsinline class="herobg" preload="metadata" poster="videos/iota-poster.jpg">
+        <source src="videos/IOTA-TRAILER-2-optimized.mp4" type="video/mp4" />
+        <source src="videos/IOTA-TRAILER-2-optimized.webm" type="video/webm" />
         Your browser does not support the video tag.
-      </video>
+    </video>
       
       <div class="herocontent">
         <h1>
@@ -156,8 +161,9 @@
       </div>
      </div>
      <div class="page2" id="page2">
-      <video autoplay muted loop playsinline class="page2bg">
-        <source src="videos/lordofring.mp4" type="video/mp4" />
+      <video autoplay muted loop playsinline class="page2bg" preload="metadata" poster="videos/lordofring-poster.jpg">
+        <source src="videos/lordofring-optimized.mp4" type="video/mp4" />
+        <source src="videos/lordofring-optimized.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
       
@@ -165,7 +171,7 @@
       <div class="page2content">
         <h1>RECENT EVENTS</h1>
         <div class="events">
-          <img src="images/prizedistribution.jpg" alt="" class="homeevents" />
+          <img src="images/prizedistribution.jpg" alt="Prize distribution event" class="homeevents" loading="lazy" width="600" height="400" />
           <div class="eventtxt">
             <h1>EVENTS, SEMINARS AND HACKATHONS</h1>
             <h2 class="event-description">
@@ -187,12 +193,12 @@
         <div class="carousel-container">
           <button class="arrow left">&#8592;</button>
           <div class="carousel" id="carousel">
-            <img src="images/carousel1.jpg" alt="" />
-            <img src="images/carousel2.jpg" alt="" />
-            <img src="images/carousel4.png" alt="" />
-            <img src="images/carousel3.jpg" alt="" />
-            <img src="images/carousel6.jpg" alt="" />
-            <img src="images/carousel7.jpg" alt="" />
+            <img src="images/carousel1.jpg" alt="Event 1" loading="lazy" width="400" height="300" />
+            <img src="images/carousel2.jpg" alt="Event 2" loading="lazy" width="400" height="300" />
+            <img src="images/carousel4.png" alt="Event 3" loading="lazy" width="400" height="300" />
+            <img src="images/carousel3.jpg" alt="Event 4" loading="lazy" width="400" height="300" />
+            <img src="images/carousel6.jpg" alt="Event 5" loading="lazy" width="400" height="300" />
+            <img src="images/carousel7.jpg" alt="Event 6" loading="lazy" width="400" height="300" />
             
           </div>
           
@@ -253,13 +259,14 @@
 
 <!-- PAGE 6: ABOUT US -->
 <div class="page6 about-page">
-  <video autoplay muted loop playsinline class="aboutbg">
+      <video autoplay muted loop playsinline class="aboutbg" preload="none" poster="videos/about-poster.jpg">
     <source src="videos/aboutus.mov" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
   <div class="page2content">
     <h1>ABOUT US</h1>
     <div class="events">
+      <img src="images/aboutus.jpg" alt="About IOTA" class="homeevents" loading="lazy" />
       <img src="images/aboutus.jpg" alt="About IOTA" class="homeevents" />
       <div class="eventtxt">
         <h1>Who We Are</h1>
@@ -278,7 +285,7 @@
 
 
     <div class="page4">
-      <img src="images/homebg.jpg" class="page4img" alt="" class="herobg" />
+      <img src="images/homebg.jpg" class="page4img" alt="Background" loading="lazy" />
       <div class="page2content">
         <div class="knowmore">
           <h1>KNOW MORE ABOUT US HERE</h1>
