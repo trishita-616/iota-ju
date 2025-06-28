@@ -7,10 +7,51 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
+    /* Import Poppins font */
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    /* Apply Poppins to all elements */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* Ensure html and body take full height */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Remove focus outline from all interactive elements */
+    a:focus, button:focus, input:focus, select:focus, textarea:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* Navigation styles */
     nav {
       background: transparent !important;
-      position: relative;
+      background-color: transparent !important;
+      background-image: none !important;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 1000;
+      padding: 1rem 2rem;
+      border: none !important;
+      box-shadow: none !important;
+      height: 80px;
+    }
+    
+    /* Ensure no pseudo-elements are adding background */
+    nav::before,
+    nav::after {
+      content: none !important;
+      display: none !important;
     }
     
     .logo-section {
@@ -45,8 +86,48 @@
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem;
+      padding: 6rem 2rem 2rem; /* Reduced top padding since we have a fixed height nav */
       box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Button hover effects */
+    .project-button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      background: rgba(76, 175, 80, 0.9);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .project-button:hover {
+      transform: translateY(-3px) scale(1.05);
+      background: rgba(76, 175, 80, 1);
+      box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+      border-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .project-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .project-button:hover::before {
+      left: 100%;
     }
   </style>
 </head>
@@ -76,58 +157,57 @@
   </nav>
 
   <!-- Main Projects Section -->
-  <section class="projects-container" style="padding-top: 8rem; overflow-x: hidden;">
-    <div class="projects-header" style="margin-bottom: 3rem;">
-      <h1></h1>
-      <p></p>
+  <section class="projects-container" style="padding-top: 8rem; overflow-x: hidden; background: transparent !important; border: none !important; box-shadow: none !important;">
+    <div class="projects-header" style="margin-bottom: 3rem; background: transparent !important; display: none;">
+      
     </div>
 
     <!-- Project 1 -->
-    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); opacity: 0; transform: translateX(-50px); transition: all 0.6s ease-out 0.1s;">
+    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2.5rem; opacity: 0; transform: translateX(-50px); transition: all 0.6s ease-out 0.1s; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);">
       <div style="flex: 0 0 300px; text-align: center; margin-right: 4rem;">
         <img src="images/4wheeler.jpg" alt="4-Wheeler Project" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #4CAF50;">
       </div>
-      <div style="flex: 1; padding: 0 2rem 0 0;">
-        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1rem; font-size: 1.8rem;">4-Wheeler Automation</h2>
-        <p style="color: #bdc3c7; line-height: 1.6; margin-bottom: 1.5rem;">
+      <div style="flex: 1; padding: 0 2rem 0 0; color: #fff;">
+        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1.2rem; font-size: 2rem; font-weight: 600; text-decoration: none !important; border-bottom: none !important; box-shadow: none !important; background-image: none !important; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">4-Wheeler Automation</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; margin-bottom: 2rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 400;">
           An innovative autonomous vehicle project focusing on navigation, obstacle detection, and smart control systems.
         </p>
-        <a href="project-details/4wheeler.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: all 0.3s ease;">Learn More</a>
+        <a href="project-details/4wheeler.html" class="project-button">Learn More</a>
       </div>
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); opacity: 0; transform: translateX(50px); transition: all 0.6s ease-out 0.2s;">
+    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2.5rem; opacity: 0; transform: translateX(50px); transition: all 0.6s ease-out 0.2s; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);">
       <div style="flex: 0 0 300px; text-align: center; margin-right: 4rem;">
         <img src="images/2wheeler.jpg" alt="2-Wheeler Project" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #4CAF50;">
       </div>
-      <div style="flex: 1; padding: 0 2rem 0 0;">
-        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1rem; font-size: 1.8rem;">2-Wheeler Automation</h2>
-        <p style="color: #bdc3c7; line-height: 1.6; margin-bottom: 1.5rem;">
+      <div style="flex: 1; padding: 0 2rem 0 0; color: #fff;">
+        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1.2rem; font-size: 2rem; font-weight: 600; text-decoration: none !important; border-bottom: none !important; box-shadow: none !important; background-image: none !important; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">2-Wheeler Automation</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; margin-bottom: 2rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 400;">
           An innovative autonomous vehicle project focusing on navigation, obstacle detection, and smart control systems.
         </p>
-        <a href="project-details/2wheeler.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: all 0.3s ease;">Learn More</a>
+        <a href="project-details/2wheeler.html" class="project-button">Learn More</a>
       </div>
     </div>
 
     <!-- Project 3 -->
-    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2rem; background: rgba(255, 255, 255, 0.03); border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.05); opacity: 0; transform: translateX(-50px); transition: all 0.6s ease-out 0.3s;">
+    <div class="project-card" style="display: flex; justify-content: center; align-items: center; margin: 4rem auto; max-width: 1000px; padding: 2.5rem; opacity: 0; transform: translateX(-50px); transition: all 0.6s ease-out 0.3s; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);">
       <div style="flex: 0 0 300px; text-align: center; margin-right: 4rem;">
         <img src="images/drone.jpg" alt="Drone Project" style="max-width: 100%; height: auto; display: block; margin: 0 auto; border-radius: 8px; border: 1px solid #4CAF50;">
       </div>
-      <div style="flex: 1; padding: 0 2rem 0 0;">
-        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1rem; font-size: 1.8rem;">Drone Automation</h2>
-        <p style="color: #bdc3c7; line-height: 1.6; margin-bottom: 1.5rem;">
-          An innovative autonomous vehicle project focusing on navigation, obstacle detection, and smart control systems.
+      <div style="flex: 1; padding: 0 2rem 0 0; color: #fff;">
+        <h2 style="color: #fff; margin-top: 0; margin-bottom: 1.2rem; font-size: 2rem; font-weight: 600; text-decoration: none !important; border-bottom: none !important; box-shadow: none !important; background-image: none !important; letter-spacing: 0.5px; font-family: 'Poppins', sans-serif;">Drone Automation</h2>
+        <p style="color: rgba(255, 255, 255, 0.9); line-height: 1.7; margin-bottom: 2rem; font-size: 1.05rem; font-family: 'Poppins', sans-serif; font-weight: 400;">
+          An innovative autonomous vehicle project focusing on navigation, obstacle detection, and smart control systems.It is a drone that can navigate through the air and avoid obstacles.This drone is equipped with a camera and a lidar sensor to detect obstacles and navigate through the air.
         </p>
-        <a href="project-details/drone.html" style="display: inline-block; padding: 0.6rem 1.5rem; background: #4CAF50; color: white; text-decoration: none; border-radius: 4px; font-weight: 500; transition: all 0.3s ease;">Learn More</a>
+        <a href="project-details/drone.html" class="project-button">Learn More</a>
       </div>
     </div>
   </section>
 
   <!-- Gallery Section -->
-  <section class="gallery-section">
-    <div class="gallery-wrapper">
+  <section class="gallery-section" style="margin-top: 2rem; padding-top: 2rem; background: transparent;">
+    <div class="gallery-wrapper" style="background: transparent;">
       <div class="gallery-scroll" id="galleryScroll">
         <img src="https://images.unsplash.com/photo-1494022299300-899b96e49893?w=600" alt="gallery1" />
         <img src="https://images.unsplash.com/photo-1529788295308-1eace6f67388?q=80" alt="gallery2" />
