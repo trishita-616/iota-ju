@@ -36,8 +36,13 @@ app.use((req, res, next) => {
   next();
 });
 
-// Route for the home page
+// Route for the home page - redirect to events
 app.get('/', (req, res) => {
+  res.redirect('/events');
+});
+
+// Keep the original home page accessible at /home
+app.get('/home', (req, res) => {
   res.sendFile(path.join(__dirname, 'HOME/homepage-of-iota-main/home.html'));
 });
 
@@ -58,6 +63,11 @@ app.get('/projects', (req, res) => {
 
 app.get('/team', (req, res) => {
     res.sendFile(path.join(__dirname, 'TEAM/team.html'));
+});
+
+// Route for Innovatia page
+app.get('/innovatia', (req, res) => {
+    res.sendFile(path.join(__dirname, 'EVENTS (2)/views/innovatia.html'));
 });
 
 // Start the server
