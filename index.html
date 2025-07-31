@@ -2,10 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=./EVENTS (2)/views/events.html">
-    <title>IOTA - Events</title>
+    <title>IOTA - Loading...</title>
+    <script>
+        // Check if the user has seen the intro before
+        const hasSeenIntro = document.cookie.split(';').some((item) => item.trim().startsWith('introShown='));
+        
+        // Redirect to home page if intro was already shown, otherwise show intro
+        if (hasSeenIntro) {
+            window.location.href = 'HOME/homepage-of-iota-main/home.html';
+        } else {
+            window.location.href = 'intro.html';
+        }
+    </script>
 </head>
 <body>
-    <p>Redirecting to Events... <a href="./EVENTS (2)/views/events.html">Click here if not redirected</a></p>
+    <p>Loading IOTA... <a href="HOME/homepage-of-iota-main/home.html">Skip to Home</a></p>
 </body>
 </html>
