@@ -886,37 +886,33 @@ nav .routes a:hover {
   overflow: hidden;
   position: relative;
   padding: 20px 0;
-  margin: 7rem 0rem;
+  margin: 7rem 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gallery-scroll {
   display: flex;
   width: max-content;
-  animation: scroll-left 40s linear infinite;
+  will-change: transform;
   gap: 20px;
+  padding: 10px 0;
 }
 
 .gallery-scroll img {
   height: 200px;
+  width: auto;
   border-radius: 8px;
   object-fit: cover;
   transition: transform 0.3s ease;
+  flex-shrink: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .gallery-scroll img:hover {
   transform: scale(1.05);
+  z-index: 2;
 }
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-
 
 .footer {
   background: #020a13;

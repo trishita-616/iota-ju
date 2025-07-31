@@ -6,9 +6,15 @@
     <title>IOTA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link rel="preload" as="image" href="images/logo.png">
-    <link rel="preload" as="image" href="images/JULogo.png">
-    <link rel="stylesheet" href="style.css" />
+    <!-- Preload critical assets -->
+    <link rel="preload" as="image" href="images/logo.png" fetchpriority="high">
+    <link rel="preload" as="image" href="images/JULogo.png" fetchpriority="high">
+    <link rel="preload" as="video" href="videos/code.mp4">
+    <link rel="preload" as="image" href="images/homebg.jpg" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -17,7 +23,8 @@
       referrerpolicy="no-referrer"
     />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="footer-styles.css" />
+    <link rel="preload" href="footer-styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="footer-styles.css"></noscript>
 
     <style>
       .explore-btn {
@@ -192,28 +199,38 @@
       <h1>GALLERY</h1>
       <div class="carouselbody">
         <div class="carousel-container">
-          <button class="arrow left">&#8592;</button>
+          <button class="arrow left" aria-label="Previous slide">&#8592;</button>
           <div class="carousel" id="carousel">
-            <img src="images/carousel1.jpg" alt="IOTA Event 1" loading="lazy" width="400" height="300" />
-            <img src="images/carousel2.jpg" alt="IOTA Event 2" loading="lazy" width="400" height="300" />
-            <img src="images/carousel4.png" alt="IOTA Workshop" loading="lazy" width="400" height="300" />
-            <img src="images/carousel3.jpg" alt="IOTA Seminar" loading="lazy" width="400" height="300" />
-            <img src="images/carousel6.jpg" alt="IOTA Team" loading="lazy" width="400" height="300" />
-            <img src="images/carousel7.jpg" alt="IOTA Event 6" loading="lazy" width="400" height="300" />
-            
+            <div class="carousel-slide active">
+              <img src="images/carousel1.jpg" alt="IOTA Event 1" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/carousel2.jpg" alt="IOTA Event 2" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/carousel4.png" alt="IOTA Workshop" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/carousel3.jpg" alt="IOTA Seminar" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/carousel6.jpg" alt="IOTA Team" />
+            </div>
+            <div class="carousel-slide">
+              <img src="images/carousel7.jpg" alt="IOTA Event 6" />
+            </div>
           </div>
-          
-          <button class="arrow right">&#8594;</button>
+          <button class="arrow right" aria-label="Next slide">&#8594;</button>
           <div class="carousel-controls" id="dots"></div>
         </div>
       </div>
     </div>
     <!-- PAGE 4: PROJECTS -->
 <div class="page4 projects-page">
-  <video autoplay muted loop playsinline class="projectsbg">
+  <video autoplay muted loop playsinline class="projectsbg" preload="none" loading="lazy" poster="videos/code-poster.jpg">
         <source src="videos/code.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+        Your browser does not support the video tag.
+    </video>
   <div class="page2content">
     <h1>PROJECTS</h1>
     <div class="events">
@@ -285,7 +302,7 @@
 
 
     <div class="page4">
-      <img src="images/homebg.jpg" class="page4img" alt="IOTA Background" loading="lazy" />
+      <img src="images/homebg.jpg" class="page4img" alt="IOTA Background" loading="lazy" width="1920" height="1080" decoding="async" />
       <div class="page2content">
         <div class="knowmore">
           <h1>KNOW MORE ABOUT US HERE</h1>
@@ -367,7 +384,7 @@
       
     </footer>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js" async></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script>
       document.querySelector('.discover').addEventListener('click', () => {
