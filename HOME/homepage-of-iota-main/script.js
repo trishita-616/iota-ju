@@ -213,20 +213,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Initialize slides position
-  function initSlides() {
-    slides.forEach((slide, index) => {
-      slide.classList.remove('active', 'prev', 'next');
-      if (index === currentIndex) {
-        slide.classList.add('active');
-      } else if (index === (currentIndex - 1 + slides.length) % slides.length) {
-        slide.classList.add('prev');
-      } else if (index === (currentIndex + 1) % slides.length) {
-        slide.classList.add('next');
-      }
-    });
-  }
-  
   // Create dots
   slides.forEach((_, index) => {
     const dot = document.createElement('button');
@@ -244,8 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Update carousel display
   function updateCarousel(transition = true) {
-    isTransitioning = true;
-    
     // Remove all classes first
     slides.forEach(slide => {
       slide.classList.remove('active', 'prev', 'next');
@@ -256,24 +240,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextIndex = (currentIndex + 1) % slides.length;
     
     // Update classes for current, prev and next slides
-    if (slides[currentIndex]) slides[currentIndex].classList.add('active');
-    if (slides[prevIndex]) slides[prevIndex].classList.add('prev');
-    if (slides[nextIndex]) slides[nextIndex].classList.add('next');
+    slides[currentIndex].classList.add('active');
+    slides[prevIndex].classList.add('prev');
+    slides[nextIndex].classList.add('next');
     
     // Update active dot
-    if (dots && dots.length) {
-      dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-        dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
-      });
-    }
+    dots.forEach((dot, index) => {
+      dot.classList.toggle('active', index === currentIndex);
+      dot.setAttribute('aria-current', index === currentIndex ? 'true' : 'false');
+    });
     
     // Update button states
-    if (prevBtn) prevBtn.disabled = currentIndex === 0;
-    if (nextBtn) nextBtn.disabled = currentIndex === slides.length - 1;
+    prevBtn.disabled = isTransitioning || currentIndex === 0;
+    nextBtn.disabled = isTransitioning || currentIndex === slides.length - 1;
     
     // Update ARIA live region for screen readers
     updateAriaLive();
+  }
+  
+  // Go to specific slide
+  function goToSlide(index) {
+    if (isTransitioning || index < 0 || index >= slides.length) return;
+    isTransitioning = true;
+    currentIndex = index;
+    updateCarousel();
     
     // Reset transition flag after animation
     setTimeout(() => {
@@ -281,33 +271,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 500);
   }
   
-  // Go to specific slide
-  function goToSlide(index) {
-    if (isTransitioning || index < 0 || index >= slides.length) return;
-    currentIndex = index;
-    updateCarousel();
-  }
-  
   // Next slide
   function nextSlide() {
-    if (isTransitioning) return;
-    if (currentIndex >= slides.length - 1) {
-      currentIndex = 0; // Loop to first slide
-    } else {
-      currentIndex++;
-    }
+    if (isTransitioning || currentIndex >= slides.length - 1) return;
+    isTransitioning = true;
+    currentIndex++;
     updateCarousel();
+    
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 500);
   }
   
   // Previous slide
   function prevSlide() {
-    if (isTransitioning) return;
-    if (currentIndex <= 0) {
-      currentIndex = slides.length - 1; // Loop to last slide
-    } else {
-      currentIndex--;
-    }
+    if (isTransitioning || currentIndex <= 0) return;
+    isTransitioning = true;
+    currentIndex--;
     updateCarousel();
+    
+    setTimeout(() => {
+      isTransitioning = false;
+    }, 500);
   }
   
   // Auto-scroll functionality
@@ -419,42 +404,19 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize
   initSlides();
   updateCarousel(false); // Initial render without transition
+  startAutoScroll();
   
-  // Add event listeners
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      prevSlide();
-      resetAutoScroll();
-    });
-  }
-  
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      nextSlide();
-      resetAutoScroll();
-    });
-  }
-  
-  // Click on slide navigation
+  // Add click handlers for slides to navigate
   document.addEventListener('click', (e) => {
-    const prevSlideEl = document.querySelector('.carousel-slide.prev');
-    const nextSlideEl = document.querySelector('.carousel-slide.next');
+    const prevSlide = document.querySelector('.carousel-slide.prev');
+    const nextSlide = document.querySelector('.carousel-slide.next');
     
-    if (prevSlideEl && prevSlideEl.contains(e.target)) {
+    if (prevSlide && prevSlide.contains(e.target)) {
       prevSlide();
-      resetAutoScroll();
-    } else if (nextSlideEl && nextSlideEl.contains(e.target)) {
+    } else if (nextSlide && nextSlide.contains(e.target)) {
       nextSlide();
-      resetAutoScroll();
     }
   });
-  
-  // Start auto-scroll after initialization
-  startAutoScroll();
   
   // Handle window resize
   let resizeTimer;

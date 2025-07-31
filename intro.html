@@ -32,11 +32,22 @@
             align-items: center;
             background-color: #000;
             overflow: hidden;
+            touch-action: manipulation;
         }
         #introVideo {
+            width: 100%;
+            height: 100%;
             max-width: 100%;
             max-height: 100vh;
             outline: none;
+            object-fit: contain;
+            background: #000;
+        }
+        @media (orientation: portrait) {
+            #introVideo {
+                width: auto;
+                height: 100%;
+            }
         }
         #skipBtn {
             position: fixed;
@@ -58,7 +69,8 @@
 <body>
     <div id="videoContainer" style="position: relative; width: 100%; height: 100%;">
         <video id="introVideo" autoplay muted playsinline preload="auto" style="width: 100%; height: 100%; object-fit: cover;">
-            <source src="INTRO/IOTA_intro.mp4" type="video/mp4">
+            <source src="./INTRO/IOTA_intro.mp4" type="video/mp4">
+            <source src="IOTA_intro.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div id="loadingOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.8); color: white; font-size: 1.2em;">
@@ -70,34 +82,66 @@
     <script>
         const video = document.getElementById('introVideo');
         const loadingOverlay = document.getElementById('loadingOverlay');
-        
+        let hasError = false;
+
         // Show loading state
-        video.addEventListener('waiting', function() {
+        function showLoading() {
             loadingOverlay.style.display = 'flex';
-        });
-        
-        // Hide loading state when video can play
-        video.addEventListener('canplay', function() {
-            loadingOverlay.style.display = 'none';
-            video.play().catch(e => console.error('Auto-play failed:', e));
-        });
-        
+            loadingOverlay.textContent = 'Loading video...';
+        }
+
         // Handle video errors
-        video.addEventListener('error', function() {
+        function handleVideoError() {
+            if (hasError) return;
+            hasError = true;
+            
+            console.error('Video error:', video.error);
             loadingOverlay.textContent = 'Error loading video. Skipping intro...';
-            setTimeout(skipIntro, 2000);
-        });
-        
-        // Redirect to home page when video ends
-        video.addEventListener('ended', function() {
-            skipIntro();
-        });
-        
-        // Start preloading the home page in the background
-        const homePageLink = document.createElement('link');
-        homePageLink.rel = 'prefetch';
-        homePageLink.href = 'HOME/homepage-of-iota-main/home.html';
-        document.head.appendChild(homePageLink);
+            setTimeout(skipIntro, 1000);
+        }
+
+        // Try to play the video
+        async function attemptPlay() {
+            try {
+                await video.play();
+                loadingOverlay.style.display = 'none';
+            } catch (err) {
+                console.error('Auto-play failed:', err);
+                // If autoplay fails, show play button
+                loadingOverlay.innerHTML = 'Click to play intro';
+                loadingOverlay.style.cursor = 'pointer';
+                loadingOverlay.onclick = async () => {
+                    try {
+                        await video.play();
+                        loadingOverlay.style.display = 'none';
+                    } catch (e) {
+                        console.error('Manual play failed:', e);
+                        skipIntro();
+                    }
+                };
+            }
+        }
+
+        // Event listeners
+        video.addEventListener('waiting', showLoading);
+        video.addEventListener('canplay', attemptPlay);
+        video.addEventListener('error', handleVideoError);
+        video.addEventListener('ended', skipIntro);
+
+        // Try to start preloading the home page
+        try {
+            const homePageLink = document.createElement('link');
+            homePageLink.rel = 'prefetch';
+            homePageLink.href = 'HOME/homepage-of-iota-main/home.html';
+            document.head.appendChild(homePageLink);
+        } catch (e) {
+            console.warn('Prefetch failed:', e);
+        }
+
+        // Initial setup
+        showLoading();
+        // Force iOS to load the video
+        video.load();
 
         // Skip intro function
         function skipIntro() {
