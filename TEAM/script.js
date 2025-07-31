@@ -1,51 +1,47 @@
-// ScrollTrigger for nav disappearing (this part is fine)
+// Initialize GSAP plugins
+gsap.registerPlugin(ScrollTrigger);
 
-gsap.to("nav", {
-  opacity: 0,
-  duration: 1,
-  scrollTrigger: {
-    trigger: "nav",
-    scroller: "body",
-    start: "top -10%",
-    end: "top -200%",
-    scrub: true,
-    toggleActions: "play none none reverse",
-  },
+// Animate TEAM IOTA heading with smooth centered entrance
+document.addEventListener('DOMContentLoaded', () => {
+  const heading = document.querySelector('.hero h1');
+  if (heading) {
+    // Set initial state
+    gsap.set(heading, {
+      opacity: 0,
+      y: 40,
+      scale: 0.95
+    });
+    
+    // Animate the heading with GSAP
+    gsap.to(heading, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 1.2,
+      ease: "power3.out",
+      delay: 0.3,
+      onComplete: () => {
+        // Make sure heading stays visible after animation
+        heading.style.opacity = '1';
+        heading.style.transform = 'none';
+      }
+    });
+  }
 });
 
-// Main animation timeline
-gsap.registerPlugin(ScrollTrigger);
-
-const tl = gsap.timeline({ defaults: { duration: 1.2, ease: "power4.out" } });
-
-// Animate nav logo and links
-tl.from("nav .logo", { y: -80, opacity: 0 })
-  .from(
-    "nav .routes h3",
-    {
-      y: -50,
-      opacity: 0,
-      stagger: 0.1,
+// Nav scroll effect - only apply to nav, not the heading
+gsap.to("nav", {
+  scrollTrigger: {
+    trigger: "nav",
+    start: "top top",
+    end: "+=100",
+    toggleClass: {
+      targets: "nav",
+      className: "scrolled"
     },
-    "-=0.8"
-  )
-
-  // Animate TEAM IOTA heading from right
-
-  // Animate logo from left
-  .from(
-    ".herocontent",
-    {
-      x: -100,
-      opacity: 0,
-    },
-    "-=0.8"
-  );
-
-
-
-// Register the ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
+    markers: false
+  }
+});
 
 // Loop through each group-photo-section and animate the image + text
 gsap.registerPlugin(ScrollTrigger);

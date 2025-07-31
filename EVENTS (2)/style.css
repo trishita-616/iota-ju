@@ -11,19 +11,29 @@ html {
     overflow-x: hidden;
     font-family: "Montserrat", sans-serif;
   }
-body{
-    background: url(https://images.pexels.com/photos/998641/pexels-photo-998641.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500) no-repeat center center fixed;
-    background-size: cover;
-    background-attachment: fixed;
+body {
+    position: relative;
     min-height: 100vh;
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: #000;
     color: white;
     overflow-x: hidden;
     height: 100%;
     width: 100%;
     padding-top: 16vh;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('media/teambg.jpg') no-repeat center center/cover;
+    
+    background-blend-mode: overlay;
+    z-index: -1;
 }
 .app{
     width: 100%;
@@ -45,6 +55,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -74,6 +85,128 @@ nav .routes a {
 nav .routes a:hover {
   color: gold;
   transform: scale(1.05);
+}
+
+/* Social Icons Styling */
+.social-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+/* Specific styles for LinkedIn and Facebook icons */
+.social-icons a[href*="linkedin"],
+.social-icons a[href*="facebook"] {
+  background: white;
+}
+
+.social-icons a[href*="linkedin"] img,
+.social-icons a[href*="facebook"] img {
+  filter: none;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+  filter: brightness(0) invert(1);
+}
+
+.social-icons a[href*="linkedin"] img,
+.social-icons a[href*="facebook"] img {
+  filter: none;
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1);
+}
+
+/* Footer Styling */
+.footer {
+  background: #0a0f1f;
+  color: #bdc3c7;
+  padding: 4rem 2rem 0;
+  position: relative;
+  margin-top: 4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+}
+
+.footer-column {
+  padding: 0 1rem;
+}
+
+.footer-logo {
+  margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+  height: 50px;
+  margin-bottom: 1rem;
+}
+
+.footer-logo p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #bdc3c7;
+}
+
+.footer-bottom {
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-bottom p {
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-column {
+    padding: 0;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 .part1{
     width: 100%;
@@ -121,7 +254,9 @@ nav .routes a:hover {
 }
 
 .event-container,
-.event-row {
+.event-row,
+.left-event,
+.right-event {
   max-width: 1000px;
   margin: 4rem auto;
   display: flex;
@@ -129,13 +264,22 @@ nav .routes a:hover {
   align-items: center;
   padding: 2.5rem;
   opacity: 0;
-  transform: translateX(-50px);
-  transition: all 0.6s ease-out 0.1s;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  will-change: transform, opacity;
+}
+
+.event-container.animate,
+.event-row.animate,
+.left-event.animate,
+.right-event.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .event-container::before,
@@ -502,7 +646,8 @@ nav .routes a:hover {
     width: 55%;
     height: 40%;
     position: absolute;
-    background: url(https://img.freepik.com/free-photo/3d-space-sky-background_1048-9168.jpg?semt=ais_items_boosted&w=740) no-repeat center center fixed;
+    background: #1a1a2e; /* Fallback color */
+    background: url('../../images/space-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -563,7 +708,8 @@ nav .routes a:hover {
     width: 56%;
     height: 75%;
     position: relative;
-    background: url(https://media.istockphoto.com/id/1514138928/video/flying-through-stars-and-nebula-stock-video.jpg?s=640x640&k=20&c=ZwAPj1tvj08nwtSjoEdxQq1sLAsTtfuzFTl3WzesUnM=) no-repeat center center fixed;
+    background: #0f0c29; /* Fallback color */
+    background: url('../../images/stars-bg.jpg') no-repeat center center fixed;
     background-size: cover;
     background-attachment: fixed;
     top: 15%;

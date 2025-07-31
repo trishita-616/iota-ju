@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="preload" as="image" href="images/logo.png">
     <link rel="preload" as="image" href="images/JULogo.png">
-    <link rel="stylesheet" href="/HOME/homepage-of-iota-main/style.css" />
+    <link rel="stylesheet" href="style.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -17,6 +17,7 @@
       referrerpolicy="no-referrer"
     />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="footer-styles.css" />
 
     <style>
       .explore-btn {
@@ -43,66 +44,66 @@
       }
       
       .logo-section {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-}
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
 
-.logo-img {
-  height: 60px;
-  width: auto;
-}
+      .logo-img {
+        height: 60px;
+        width: auto;
+      }
 
-.separator {
-  width: 2px;
-  height: 40px;
-  background-color: white;
-  opacity: 0.6;
-}
-.eventbtn {
-  padding: 14px 32px;
-  font-size: 1rem;
-  background: linear-gradient(145deg, #00bfa6, #009688);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 8px 15px rgba(0, 191, 166, 0.3);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  font-weight: bold;
-  perspective: 1000px;
-  transform-style: preserve-3d;
-}
+      .separator {
+        width: 2px;
+        height: 40px;
+        background-color: white;
+        opacity: 0.6;
+      }
+      .eventbtn {
+        padding: 14px 32px;
+        font-size: 1rem;
+        background: linear-gradient(145deg, #00bfa6, #009688);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        box-shadow: 0 8px 15px rgba(0, 191, 166, 0.3);
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        font-weight: bold;
+        perspective: 1000px;
+        transform-style: preserve-3d;
+      }
 
-.eventbtn:hover {
-  transform: translateY(-5px) scale(1.03) rotateX(5deg);
-  box-shadow: 0 12px 20px rgba(0, 191, 166, 0.5);
-  background: linear-gradient(145deg, #00e0bb, #007f6e);
-}
+      .eventbtn:hover {
+        transform: translateY(-5px) scale(1.03) rotateX(5deg);
+        box-shadow: 0 12px 20px rgba(0, 191, 166, 0.5);
+        background: linear-gradient(145deg, #00e0bb, #007f6e);
+      }
 
-.event-description {
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif; /* Modern & energetic */
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0, 191, 166, 0.5);
-  line-height: 1.6;
-  letter-spacing: 0.5px;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  animation: fadeUp 1.2s ease-in-out both;
-}
+      .event-description {
+        font-size: 1.5rem;
+        font-weight: 600;
+        font-family: 'Poppins', sans-serif; /* Modern & energetic */
+        color: #ffffff;
+        text-shadow: 1px 1px 4px rgba(0, 191, 166, 0.5);
+        line-height: 1.6;
+        letter-spacing: 0.5px;
+        margin-top: 1rem;
+        margin-bottom: 2rem;
+        animation: fadeUp 1.2s ease-in-out both;
+      }
 
-@keyframes fadeUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
 
     </style>
   </head>
@@ -111,7 +112,7 @@
       <!-- Left: Logos -->
       <div class="logo-section">
         <div class="logo">
-          <img src="images/logo.png" alt="IOTA Logo" class="logo-img" />
+          <img src="images/IOTA.png" alt="IOTA Logo" class="logo-img" />
         </div>
     
         <div class="separator"></div>
@@ -123,11 +124,11 @@
     
       <!-- Right: Navigation Links -->
       <div class="routes">
-        <a href="/HOME/homepage-of-iota-main/home.html">Home</a>
-        <a href="/EVENTS (2)/views/events.html">Events</a>
-        <a href="/PROJECTS/projects.html">Projects</a>
-        <a href="/TEAM/team.html">Team</a>
-        <a href="/ABOUT US/about us.html">About Us</a>
+        <a href="./home.html">Home</a>
+        <a href="../../EVENTS (2)/views/events.html">Events</a>
+        <a href="../../PROJECTS/projects.html">Projects</a>
+        <a href="../../TEAM/team.html">Team</a>
+        <a href="../../ABOUT US/about us.html">About Us</a>
       </div>
       
     </nav>
@@ -170,6 +171,7 @@
         
         <h1>RECENT EVENTS</h1>
         <div class="events">
+          
           <img src="images/prizedistribution.jpg" alt="Prize distribution event" class="homeevents" loading="lazy" width="600" height="400" />
           <div class="eventtxt">
             <h1>EVENTS, SEMINARS AND HACKATHONS</h1>
@@ -179,25 +181,25 @@
               Be where innovation meets action.
             </h2>
             
-            <button class="explore-btn" onclick="window.location.href='/EVENTS (2)/views/events.html'">EXPLORE</button>
+            <button class="explore-btn" onclick="window.location.href='../../EVENTS (2)/views/events.html'">EXPLORE</button>
 
           </div>
         </div>
       </div>
     </div>
     <div class="page3">
-      <img src="images/homebg.jpg" alt="" class="Carouselimg" />
+      <img src="images/homebg.jpg" alt="Gallery background" class="Carouselimg" />
       <h1>GALLERY</h1>
       <div class="carouselbody">
         <div class="carousel-container">
           <button class="arrow left">&#8592;</button>
           <div class="carousel" id="carousel">
-            <img src="images/carousel1.jpg" alt="Event 1" loading="lazy" width="400" height="300" />
-            <img src="images/carousel2.jpg" alt="Event 2" loading="lazy" width="400" height="300" />
-            <img src="images/carousel4.png" alt="Event 3" loading="lazy" width="400" height="300" />
-            <img src="images/carousel3.jpg" alt="Event 4" loading="lazy" width="400" height="300" />
-            <img src="images/carousel6.jpg" alt="Event 5" loading="lazy" width="400" height="300" />
-            <img src="images/carousel7.jpg" alt="Event 6" loading="lazy" width="400" height="300" />
+            <img src="images/carousel1.jpg" alt="IOTA Event 1" loading="lazy" width="400" height="300" />
+            <img src="images/carousel2.jpg" alt="IOTA Event 2" loading="lazy" width="400" height="300" />
+            <img src="images/carousel4.png" alt="IOTA Workshop" loading="lazy" width="400" height="300" />
+            <img src="images/carousel3.jpg" alt="IOTA Seminar" loading="lazy" width="400" height="300" />
+            <img src="images/carousel6.jpg" alt="IOTA Team" loading="lazy" width="400" height="300" />
+            <img src="images/carousel7.jpg" alt="IOTA Event 6" loading="lazy" width="400" height="300" />
             
           </div>
           
@@ -209,7 +211,7 @@
     <!-- PAGE 4: PROJECTS -->
 <div class="page4 projects-page">
   <video autoplay muted loop playsinline class="projectsbg">
-    <source src="videos/analog.mp4" type="video/mp4" />
+        <source src="videos/code.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
   <div class="page2content">
@@ -223,7 +225,7 @@
           connected devices, environmental monitoring,<br />
           and AI-powered systems.
         </h2>
-        <button class="projectsbtn" onclick="window.location.href='/PROJECTS/projects.html'">
+        <button class="projectsbtn" onclick="window.location.href='../../PROJECTS/projects.html'">
           Explore Projects
         </button>
       </div>
@@ -248,7 +250,7 @@
           engineers, developers and designers<br />
           leading IOTA towards excellence.
         </h2>
-        <button class="teambtn" onclick="window.location.href='/TEAM/team.html'">
+        <button class="teambtn" onclick="window.location.href='../../TEAM/team.html'">
           Know the Team
         </button>
       </div>
@@ -266,7 +268,6 @@
     <h1>ABOUT US</h1>
     <div class="events">
       <img src="images/aboutus.jpg" alt="About IOTA" class="homeevents" loading="lazy" />
-      <img src="images/aboutus.jpg" alt="About IOTA" class="homeevents" />
       <div class="eventtxt">
         <h1>Who We Are</h1>
         <h2>
@@ -274,7 +275,7 @@
           We explore Internet of Things through research,<br />
           hands-on projects, and community engagement.
         </h2>
-        <button class="aboutbtn" onclick="window.location.href='/ABOUT US/about us.html'">
+        <button class="aboutbtn" onclick="window.location.href='../../ABOUT US/about us.html'">
           Read More
         </button>
       </div>
@@ -284,7 +285,7 @@
 
 
     <div class="page4">
-      <img src="images/homebg.jpg" class="page4img" alt="Background" loading="lazy" />
+      <img src="images/homebg.jpg" class="page4img" alt="IOTA Background" loading="lazy" />
       <div class="page2content">
         <div class="knowmore">
           <h1>KNOW MORE ABOUT US HERE</h1>
@@ -320,16 +321,16 @@
         </div>
         <div class="social-icons">
           <a href="https://www.facebook.com/people/IOT-Applications-Club-Jadavpur-University/61550560228682/?mibextid=ZbWKwL" target="_blank">
-            <img src="images/facebook (2).png" alt="Facebook" />
+            <img src="images/facebook.png" alt="Facebook" class="social" />
           </a>
           <a href="https://www.instagram.com/iota_ju/" target="_blank">
-            <img src="images/Instagram (2).png" alt="Instagram" />
+            <img src="images/instagram.png" alt="Instagram" class="social" />
           </a>
           <a href="https://www.linkedin.com/company/iot-applications-club-jadavpur-university/posts/?feedView=all" target="_blank">
-            <img src="images/Linkedin (2).png" alt="LinkedIn" />
+            <img src="images/linkedin.png" alt="LinkedIn" class="social" />
           </a>
           <a href="https://github.com/IoTA-Jadavpur-Univeristy" target="_blank">
-            <img src="images/Github.png" alt="LinkedIn" />
+            <img src="images/github.png" alt="GitHub" class="social" />
           </a>
         </div>
       </div>

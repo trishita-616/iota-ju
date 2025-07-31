@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
   --primary-color: #3a86ff;
@@ -19,7 +19,7 @@ body,
 html {
   height: 100%;
   width: 100%;
-  background: #000;
+  
   color: white;
   overflow-x: hidden;
 }
@@ -32,9 +32,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(26, 26, 46, 0.98) 0%, rgba(22, 22, 46, 0.98) 100%);
+  background: url('media/teambg.jpg') no-repeat center center/cover;
   z-index: -1;
-  backdrop-filter: blur(5px);
 }
 
 a {
@@ -65,7 +64,6 @@ nav {
   color: white;
 }
 
-
 nav h1 {
   font-size: 1.7rem;
   font-weight: 900;
@@ -74,13 +72,14 @@ nav h2 {
   font-size: 0.8rem;
   font-weight: 400;
 }
-nav .routes {
+
+.routes {
   display: flex;
   align-items: center;
   gap: 3rem;
 }
 
-nav .routes a {
+.routes a {
   font-size: 1.7rem;
   font-weight: 900;
   color: white;
@@ -89,7 +88,7 @@ nav .routes a {
   transition: all 0.3s ease-in-out;
 }
 
-nav .routes a:hover {
+.routes a:hover {
   color: gold;
   transform: scale(1.05);
 }
@@ -297,15 +296,22 @@ nav .routes a:hover {
   background: #020a13;
   color: white;
   padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: flex-start;
   position: relative;
   text-align: center;
-  overflow: hidden;
+  gap: 30px;
+  font-family: "Poppins", sans-serif;
 }
 
 .footerbg {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   opacity: 0.1;
   z-index: 0;
@@ -318,16 +324,41 @@ nav .routes a:hover {
   justify-content: space-between;
   gap: 2rem;
   flex-wrap: wrap;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   padding: 2rem 0;
+  font-family: "Poppins", sans-serif;
 }
 
 .footer-column {
+  position: relative;
+  z-index: 1;
   flex: 1;
   min-width: 250px;
   max-width: 350px;
-  z-index: 1;
-  padding: 0 1rem;
-  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer-column iframe.map {
+  width: 100%;
+  height: 250px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.footer-column:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
 }
 
 .footer-logo img {
@@ -338,6 +369,7 @@ nav .routes a:hover {
 .footer-logo p {
   margin: 10px 0;
   font-weight: bold;
+  font-family: "Poppins", sans-serif;
 }
 
 .social-icons {
@@ -348,13 +380,18 @@ nav .routes a:hover {
 }
 
 .social-icons a img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   transition: transform 0.3s ease-in-out;
+  filter: brightness(1.2);
+  background: white;
+  border-radius: 50%;
+  padding: 5px;
 }
 
 .social-icons a img:hover {
   transform: scale(1.2);
+  filter: brightness(1);
 }
 
 .social-icons img {
@@ -368,6 +405,7 @@ nav .routes a:hover {
   border: 2px solid white;
   padding: 20px;
   border-radius: 10px;
+  font-family: "Poppins", sans-serif;
 }
 
 .contact-form input,
@@ -377,6 +415,7 @@ nav .routes a:hover {
   padding: 10px;
   border: none;
   border-radius: 5px;
+  font-family: "Poppins", sans-serif;
 }
 
 .contact-form button {

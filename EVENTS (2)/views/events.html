@@ -8,9 +8,9 @@
     <!-- GSAP Core + Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="/EVENTS (2)/style.css">
+    <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
       
@@ -39,6 +39,69 @@
         scroll-behavior: smooth;
       }
       
+      /* Navbar styles */
+      nav {
+        z-index: 100;
+        position: fixed;
+        width: 100%;
+        height: 16vh;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-family: 'Montserrat', sans-serif !important;
+        padding: 3rem 4rem;
+        color: white;
+      }
+      
+      nav h1 {
+        font-size: 1.7rem;
+        font-weight: 900;
+      }
+      
+      nav h2 {
+        font-size: 0.8rem;
+        font-weight: 400;
+      }
+      
+      .logo-section {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      
+      .logo-img {
+        height: 60px;
+        width: auto;
+      }
+      
+      .separator {
+        width: 2px;
+        height: 40px;
+        background-color: white;
+        opacity: 0.6;
+      }
+      
+      .routes {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+      }
+      
+      .routes a {
+        font-size: 1.7rem;
+        font-weight: 900;
+        color: white;
+        text-decoration: none;
+        transition: all 0.3s ease-in-out;
+      }
+      
+      .routes a:hover {
+        color: gold;
+        transform: scale(1.05);
+      }
+      
+      /* Event container styles */
       .event-container a,
       .event-row a,
       .left-event a,
@@ -192,23 +255,23 @@
     <!-- Left: Logos -->
     <div class="logo-section">
       <div class="logo">
-        <img src="/EVENTS (2)/images/logo.png" alt="IOTA Logo" class="logo-img" />
+        <img src="../images/logo.png" alt="IOTA Logo" class="logo-img" />
       </div>
   
       <div class="separator"></div>
   
       <div class="logo">
-        <img src="/EVENTS (2)/images/JULogo.png" alt="JU Logo" class="logo-img" />
+        <img src="../images/JULogo.png" alt="JU Logo" class="logo-img" />
       </div>
     </div>
   
     <!-- Right: Navigation Links -->
     <div class="routes">
-      <a href="/HOME/homepage-of-iota-main/home.html">Home</a>
-      <a href="/EVENTS (2)/views/events.html">Events</a>
-      <a href="/PROJECTS/projects.html">Projects</a>
-      <a href="/TEAM/team.html">Team</a>
-      <a href="/ABOUT US/about us.html">About Us</a>
+      <a href="../../HOME/homepage-of-iota-main/home.html">Home</a>
+      <a href="#">Events</a>
+      <a href="../../PROJECTS/projects.html">Projects</a>
+      <a href="../../TEAM/team.html">Team</a>
+      <a href="../../ABOUT US/about us.html">About Us</a>
     </div>
   </nav>
   <!--###########################################################-->
@@ -393,26 +456,26 @@
 
   <footer class="footer">
         <!-- Background Image -->
-        <img src="/EVENTS (2)/images/footerbg.png" alt="" class="footerbg" />
+        <img src="../images/footerbg.png" alt="" class="footerbg" />
       
         <!-- First Column: Logo & Social -->
         <div class="footer-column">
           <div class="footer-logo">
-            <img src="/EVENTS (2)/images/logo.png" alt="IOTA Logo" />
+            <img src="../images/logo.png" alt="IOTA Logo" />
             <p>IoT Applications Club, Jadavpur University</p>
           </div>
           <div class="social-icons">
             <a href="https://www.facebook.com/people/IOT-Applications-Club-Jadavpur-University/61550560228682/?mibextid=ZbWKwL" target="_blank">
-              <img src="/EVENTS (2)/images/facebook (2).png" alt="Facebook" />
+              <img src="../images/facebook.png" alt="Facebook" />
             </a>
             <a href="https://www.instagram.com/iota_ju/" target="_blank">
-              <img src="/EVENTS (2)/images/Instagram (2).png " alt="Instagram" />
+              <img src="../images/instagram.png" alt="Instagram" />
             </a>
             <a href="https://www.linkedin.com/company/iot-applications-club-jadavpur-university/posts/?feedView=all" target="_blank">
-              <img src="/EVENTS (2)/images/Linkedin (2).png " alt="LinkedIn" />
+              <img src="../images/linkedin.png" alt="LinkedIn" />
             </a>
             <a href="https://github.com/IoTA-Jadavpur-Univeristy" target="_blank">
-              <img src="/EVENTS (2)/images/Github.png" alt="LinkedIn" />
+              <img src="../images/github.png" alt="GitHub" />
             </a>
           </div>
         </div>

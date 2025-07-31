@@ -7,15 +7,15 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Import Poppins font */
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    /* Import Montserrat font */
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
     
-    /* Apply Poppins to all elements */
+    /* Apply Montserrat to all elements */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
     
     /* Ensure html and body take full height */
@@ -33,25 +33,16 @@
     
     /* Navigation styles */
     nav {
-      background: transparent !important;
-      background-color: transparent !important;
-      background-image: none !important;
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      z-index: 1000;
+      z-index: 100;
+      background: transparent;
       padding: 1rem 2rem;
-      border: none !important;
-      box-shadow: none !important;
-      height: 80px;
-    }
-    
-    /* Ensure no pseudo-elements are adding background */
-    nav::before,
-    nav::after {
-      content: none !important;
-      display: none !important;
+      border: none;
+      box-shadow: none;
+      height: 16vh;
     }
     
     .logo-section {
@@ -73,23 +64,20 @@
     }
 
     body {
-      background-image: url('/PROJECTS/images/homebg.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-      background-position: center;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
       margin: 0;
       padding: 0;
     }
     
     .projects-container {
-      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 6rem 2rem 2rem; /* Reduced top padding since we have a fixed height nav */
-      box-sizing: border-box;
-      position: relative;
-      z-index: 1;
+      padding: 2rem 1.5rem;
+      background: transparent !important;
+      background-color: transparent !important;
     }
     
     /* Button hover effects */
@@ -136,23 +124,23 @@
     <!-- Left: Logos -->
     <div class="logo-section">
       <div class="logo">
-        <img src="/PROJECTS/images/logo.png" alt="IOTA Logo" class="logo-img" />
+        <img src="images/logo.png" alt="IOTA Logo" class="logo-img" />
       </div>
   
       <div class="separator"></div>
   
       <div class="logo">
-        <img src="/PROJECTS/images/JULogo.png" alt="JU Logo" class="logo-img" />
+        <img src="images/JULogo.png" alt="JU Logo" class="logo-img" />
       </div>
     </div>
   
     <!-- Right: Navigation Links -->
     <div class="routes">
-      <a href="/HOME/homepage-of-iota-main/home.html">Home</a>
-      <a href="/EVENTS (2)/views/events.html">Events</a>
-      <a href="/PROJECTS/projects.html">Projects</a>
-      <a href="/TEAM/team.html">Team</a>
-      <a href="/ABOUT US/about us.html">About Us</a>
+      <a href="../HOME/homepage-of-iota-main/home.html">Home</a>
+      <a href="../EVENTS (2)/views/events.html">Events</a>
+      <a href="projects.html">Projects</a>
+      <a href="../TEAM/team.html">Team</a>
+      <a href="../ABOUT US/about us.html">About Us</a>
     </div>
   </nav>
 
@@ -245,7 +233,7 @@
           <img src="images/Linkedin (2).png" alt="LinkedIn" />
         </a>
         <a href="https://github.com/IoTA-Jadavpur-Univeristy" target="_blank">
-          <img src="images/Github.png" alt="LinkedIn" />
+          <img src="images/Github.png" alt="Github" />
         </a>
       </div>
     </div>
