@@ -19,9 +19,10 @@ body,
 html {
   height: 100%;
   width: 100%;
-  
+  font-weight: bold;
   color: white;
   overflow-x: hidden;
+  font-family: "Montserrat", sans-serif;
 }
 
 
@@ -59,7 +60,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Poppins", sans-serif;
   padding: 3rem 4rem;
   color: white;
 }

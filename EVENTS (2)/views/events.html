@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="nav-style.css">
 
     <style>
       
@@ -86,6 +87,7 @@
         display: flex;
         align-items: center;
         gap: 3rem;
+        transition: opacity 0.3s ease-in-out;
       }
       
       .routes a {
@@ -520,24 +522,14 @@
           row.style.transform = 'translateX(0)';
         });
 
-        // Navbar scroll effect
-        const navbar = document.querySelector('.navbar');
-        let lastScrollTop = 0;
-        
-        window.addEventListener('scroll', function() {
-          const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-          
-          if (scrollTop > lastScrollTop) {
-            // Scrolling down
-            navbar.style.opacity = '0.7';
-            navbar.style.transform = 'scale(0.95)';
-          } else {
-            // Scrolling up
-            navbar.style.opacity = '1';
-            navbar.style.transform = 'scale(1)';
-          }
-          
-          lastScrollTop = scrollTop;
+        // Simplified GSAP Navbar Animation
+        ScrollTrigger.create({
+            start: 'top -80',
+            end: 99999,
+            toggleClass: {
+                className: 'nav-scrolled',
+                targets: 'nav'
+            }
         });
 
         // Add ripple effect to all event buttons
