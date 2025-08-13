@@ -144,7 +144,7 @@ nav .routes a:hover {
   flex-direction: column;
   justify-content: space-around;
   overflow: hidden;
-  background-color: #020a13; /* Fallback background */
+  background-image: url(images/homebg.jpg);
 }
 
 .page2 .page2img {
@@ -161,7 +161,6 @@ nav .routes a:hover {
   height: 80%;
   width: 90%;
   margin-top: 5rem;
-  background: transparent;
 }
 .page2content h1 {
   color: white;
@@ -511,6 +510,12 @@ nav .routes a:hover {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
+
+/* .page2content{
+ background-image: url(images/homebg.jpg);
+ 
+} */
+
 
 .page2bg {
   position: absolute;
